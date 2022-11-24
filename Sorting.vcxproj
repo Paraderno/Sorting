@@ -132,6 +132,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array_Sort.h" />
+    <ClInclude Include="Get_Time.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Sorting.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
