@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{52efe238-1e91-4f50-8a23-85c32eaf00d8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sorting.cpp">
@@ -34,8 +37,11 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Sorting.rc">
-      <Filter>资源文件</Filter>
-    </ResourceCompile>
+    <None Include="data.in">
+      <Filter>Resource</Filter>
+    </None>
+    <None Include="data.out">
+      <Filter>Resource</Filter>
+    </None>
   </ItemGroup>
 </Project>

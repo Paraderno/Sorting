@@ -1,6 +1,6 @@
 ﻿// Sorting.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
-
+#define _CRT_SECURE_NO_WARNINGS
 #include <bits/stdc++.h>
 #include "Array_Sort.h"
 
@@ -40,6 +40,5 @@ int main()
 
     i64 time9 = test->Radix_Sort();
     std::cout << time9 / 1000 << "s " << time9 % 1000 << "ms\n";
-
     return 0;
 }

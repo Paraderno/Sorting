@@ -24,11 +24,13 @@ void Array_Sort::merge(int l, int r)
 		B[i - mid] = temp[i];
 
 	//合并区间
-	int posA = 0, posB = 0, posT = 0;
+	int posA = 0, posB = 0, posT = l;
 	while (posA < mid - l && posB < r - mid)
 		A[posA] <= B[posB] ? temp[posT++] = A[posA++] : temp[posT++] = B[posB++];
 	while (posA < mid - l) temp[posT++] = A[posA++];
 	while (posB < r - mid) temp[posT++] = B[posB++];
+	delete A;
+	delete B;
 }
 
 void Array_Sort::quick(int l, int r)
@@ -59,7 +61,7 @@ void Array_Sort::quick(int l, int r)
 	}
 	
 	for (int i = l; i < r; i++) temp[i] = A[i - l];
-	
+	delete A;
 	// 处理子区间
 	quick(l, l + Pivot);
 	quick(l + Pivot + 1, r);
@@ -94,7 +96,7 @@ i64 Array_Sort::Insertion_Sort()
 	//稳定的
 	
 	Get_Time_Of_Day(&Time_End);
-	Show();
+	//Show();
 	i64 time = (Time_End.Second * 1000 + Time_End.Millisecond) - (Time_Begin.Second * 1000 + Time_Begin.Millisecond);
 	return time;
 }
@@ -120,7 +122,7 @@ i64 Array_Sort::Bubble_Sort()
 	//稳定的
 
 	Get_Time_Of_Day(&Time_End);
-	Show();
+	//Show();
 	i64 time = (Time_End.Second * 1000 + Time_End.Millisecond) - (Time_Begin.Second * 1000 + Time_Begin.Millisecond);
 	return time;
 }
@@ -141,7 +143,7 @@ i64 Array_Sort::Selection_Sort()
 	//稳定的
 
 	Get_Time_Of_Day(&Time_End);
-	Show();
+	//Show();
 	i64 time = (Time_End.Second * 1000 + Time_End.Millisecond) - (Time_Begin.Second * 1000 + Time_Begin.Millisecond);
 	return time;
 }
@@ -151,15 +153,17 @@ i64 Array_Sort::Shell_Sort()
 	for (int i = 0; i < size; i++) temp[i] = array[i];
 	Get_Time_Of_Day(&Time_Begin);
 
-	for(int k = size / 2; k; k /= 2)//每次间距减少一半
-		for (int i = 1; i <= k; i++)
-			for (int j = size - i; j >= k; j -= k)//插入排序
+	for (int k = size / 2; k; k >>= 1)//每次间距减少一半
+	{
+		for (int i = k; i < size; i++)//插入排序
+			for (int j = i; j >= k; j -= k)
 				if (temp[j - k] > temp[j])
 					std::swap(temp[j - k], temp[j]);
+	}
 	//不稳定的
 
 	Get_Time_Of_Day(&Time_End);
-	Show();
+	//Show();
 	i64 time = (Time_End.Second * 1000 + Time_End.Millisecond) - (Time_Begin.Second * 1000 + Time_Begin.Millisecond);
 	return time;
 }
@@ -173,7 +177,7 @@ i64 Array_Sort::Merge_Sort()
 	//稳定的
 
 	Get_Time_Of_Day(&Time_End);
-	Show();
+	//Show();
 	i64 time = (Time_End.Second * 1000 + Time_End.Millisecond) - (Time_Begin.Second * 1000 + Time_Begin.Millisecond);
 	return time;
 }
@@ -188,7 +192,7 @@ i64 Array_Sort::Quick_Sort()
 	//稳定的
 
 	Get_Time_Of_Day(&Time_End);
-	Show();
+	//Show();
 	i64 time = (Time_End.Second * 1000 + Time_End.Millisecond) - (Time_Begin.Second * 1000 + Time_Begin.Millisecond);
 	return time;
 }
@@ -203,7 +207,7 @@ i64 Array_Sort::Heap_Sort()
 	for (int i = 0; i < size; i++) temp[i] = q.top(), q.pop();
 
 	Get_Time_Of_Day(&Time_End);
-	Show();
+	//Show();
 	i64 time = (Time_End.Second * 1000 + Time_End.Millisecond) - (Time_Begin.Second * 1000 + Time_Begin.Millisecond);
 	return time;
 }
@@ -226,7 +230,7 @@ i64 Array_Sort::Bin_Sort()
 			temp[index++] = x;
 
 	Get_Time_Of_Day(&Time_End);
-	Show();
+	//Show();
 	i64 time = (Time_End.Second * 1000 + Time_End.Millisecond) - (Time_Begin.Second * 1000 + Time_Begin.Millisecond);
 	return time;
 }
@@ -254,7 +258,7 @@ i64 Array_Sort::Radix_Sort()
 	}
 
 	Get_Time_Of_Day(&Time_End);
-	Show();
+	//Show();
 	i64 time = (Time_End.Second * 1000 + Time_End.Millisecond) - (Time_Begin.Second * 1000 + Time_Begin.Millisecond);
 	return time;
 }
